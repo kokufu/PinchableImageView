@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 20150319
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId 'com.kokufu.android.lib.ui.widget'
+            artifactId 'pinchableimageview-aar'
+            version = android.defaultConfig.versionName
+        }
+    }
+    repositories {
+        maven {
+            url "file:${projectDir}/maven-repo"
+        }
+    }
+}
+
+afterEvaluate {
+    publishing.publications.aar.artifact(bundleRelease)
+}
