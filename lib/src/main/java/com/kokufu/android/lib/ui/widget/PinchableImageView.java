@@ -22,7 +22,6 @@ import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.FloatMath;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
@@ -483,7 +482,7 @@ public class PinchableImageView extends ImageView {
     }
 
     private static float hypot(float x, float y) {
-        return FloatMath.sqrt(x * x + y * y);
+        return (float) Math.sqrt(x * x + y * y);
     }
 
     private void initVelocityTrackerIfNotExists() {
