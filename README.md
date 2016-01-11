@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.kokufu.android.lib.ui.widget:pinchableimageview-aar:1.0'
+    compile 'com.kokufu.android.lib.ui.widget:pinchableimageview-aar:1.1'
 }
 ```
 
